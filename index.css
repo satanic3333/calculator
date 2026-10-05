@@ -1,0 +1,151 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+}
+.calculator{
+    display:flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 18vw;
+    border: solid #000;
+    border-radius: 15px;
+    border-width: 20px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: solid #f5ccd4;
+    border-width: 20px;
+    box-shadow : 
+        0 0 5px  #f5ccd4,
+        0 0 15px #f5ccd4,
+        0 0 30px #e8a0b4,
+        0 0 60px #e8a0b4;
+    
+    animation: glow 4s infinite ease-in-out ;
+    position: relative;
+    z-index: 1;
+}
+@keyframes glow{
+    0%{
+    box-shadow: 
+    0 0 5px #c9a8ae, 
+    0 0 15px #9e8489, 
+    0 0 30px #a06f7d, 
+    0 0 60px #916370;
+    }
+    50%{
+    box-shadow: 
+    0 0 8px #f5ccd4, 
+    0 0 20px #f5ccd4, 
+    0 0 40px #e8a0b4, 
+    0 0 80px #e8a0b4;
+    }
+    100%{
+    box-shadow: 0 0 5px #c9a8ae,
+    0 0 15px #9e8489, 
+    0 0 30px #a06f7d, 
+    0 0 60px #916370;
+    }
+}
+#screen{
+    display: flex;
+    align-items: center;
+    font-size: 48px;
+    font-family: "Press Start 2P", monospace;
+    padding: 3px;
+    color:#590d22;
+}
+.table{
+    border: #000;
+    border-spacing:0;
+    width: 100%;     
+    height: 200px;
+    background-color: #f5ccd4;
+}
+.buttons{
+    display:grid;
+    grid-template-columns: repeat(4,1fr) ;
+    grid-template-rows: repeat(5,70px);
+    gap: 5px;
+    background-color: #000;
+}
+.buttons button{
+    font-size: 28px;
+    cursor:pointer;
+    border-radius: 5px;
+    margin: 5px;
+    border:none;
+    font-family:"Press Start 2P", monospace; 
+    font-size: 20px;
+    background-color: #504f1d;
+}
+#one,
+#two,
+#three, 
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine,
+#null{
+    background-color:#ffb3c6;
+    color:#590d22;
+}
+#plus,
+#minus,
+#times,
+#divide,
+#root,
+#degree,
+#percent,
+#dot,
+#clear{
+    background-color: #ff9fab;
+    color:#590d22;
+}
+#equals{
+    background-color: #fb6f92;
+    color:#fff;
+}
+.buttons button {
+    transition: transform 0.1s steps(2), filter 0.15s steps(2);
+}
+.buttons button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+.buttons button:active {
+    filter: brightness(0.85);
+    transform: translateY(2px) scale(0.96);
+}
+#sakura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+.petal {
+    position: absolute;
+    top: 0;
+    background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
+    border-radius: 150% 0 150% 0;
+    opacity: 0.85;
+    animation: fall 10s  infinite, sway 3s ease-in-out infinite alternate;
+}
+@keyframes fall {
+    from { transform: translateY(-10vh) rotate(0deg); }
+    to   { transform: translateY(110vh) rotate(360deg); }
+}
+@keyframes sway {
+    from { translate: -20px 0; }
+    to   { translate: 20px 0; }
+}
